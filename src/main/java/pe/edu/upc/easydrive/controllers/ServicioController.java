@@ -27,30 +27,33 @@ public class ServicioController {
     @PostMapping
     public void insertar(@RequestBody ServicioDTO dto) {
         ModelMapper m = new ModelMapper();
-        Servicio s = m.map(dto , Servicio.class);
+        Servicio s = m.map(dto, Servicio.class);
         sS.insert(s);
     }
 
     @GetMapping("/{id}")
-    public ServicioDTO listarId(@PathVariable("id") Integer id){
+    public ServicioDTO listarId(@PathVariable("id") Integer id) {
         ModelMapper m = new ModelMapper();
-        return m.map(sS.listId(id) , ServicioDTO.class);
+        return m.map(sS.listId(id), ServicioDTO.class);
     }
+
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id")Integer id){
+    public void eliminar(@PathVariable("id") Integer id) {
         sS.delete(id);
     }
+
     @PutMapping
-    public void modificar(@RequestBody ServicioDTO dto){
+    public void modificar(@RequestBody ServicioDTO dto) {
         ModelMapper m = new ModelMapper();
-        Servicio s = m.map(dto,Servicio.class);
+        Servicio s = m.map(dto, Servicio.class);
         sS.update(s);
     }
+
     @GetMapping("/busquedas")
-    public List<ServicioDTO> BuscarEjemlo(String n){
-        return sS.buscar(n).stream().map(x->{
+    public List<ServicioDTO> BuscarEjemlo(String n) {
+        return sS.buscar(n).stream().map(x -> {
             ModelMapper m = new ModelMapper();
-            return m.map(x,ServicioDTO.class);
+            return m.map(x, ServicioDTO.class);
         }).collect(Collectors.toList());
     }
 }
