@@ -2,8 +2,6 @@ package pe.edu.upc.easydrive.entities;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-
 @Entity
 @Table(name = "Servicio")
 public class Servicio {

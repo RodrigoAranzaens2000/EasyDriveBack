@@ -24,20 +24,24 @@ public class Usuario {
     private String Contrasenia;
     @Column(name = "fechaNacimiento", nullable = false)
     private LocalDate fechaNacimiento;
+    @ManyToOne
+    @JoinColumn(name = "IDRol")
+    private Rol rol;
 
     public Usuario() {
 
     }
 
-    public Usuario(int IDUsuario, long DNI, String Nombre, String ApellidoPaterno, String ApellidoMaterno, String CorreoElectronico, LocalDate fechaNacimiento) {
+    public Usuario(int IDUsuario, Long DNI, String nombre, String apellidoPaterno, String apellidoMaterno, String correoElectronico, String contrasenia, LocalDate fechaNacimiento, Rol rol) {
         this.IDUsuario = IDUsuario;
         this.DNI = DNI;
-        this.Nombre = Nombre;
-        this.ApellidoPaterno = ApellidoPaterno;
-        this.ApellidoMaterno = ApellidoMaterno;
-        this.CorreoElectronico = CorreoElectronico;
+        this.Nombre = nombre;
+        this.ApellidoPaterno = apellidoPaterno;
+        this.ApellidoMaterno = apellidoMaterno;
+        this.CorreoElectronico = correoElectronico;
+        this.Contrasenia = contrasenia;
         this.fechaNacimiento = fechaNacimiento;
-
+        this.rol = rol;
     }
 
     public int getIDUsuario() {
@@ -102,5 +106,13 @@ public class Usuario {
 
     public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 }

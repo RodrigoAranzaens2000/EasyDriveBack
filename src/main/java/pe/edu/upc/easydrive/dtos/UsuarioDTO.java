@@ -1,5 +1,7 @@
 package pe.edu.upc.easydrive.dtos;
 
+import pe.edu.upc.easydrive.entities.Rol;
+
 import java.time.LocalDate;
 
 public class UsuarioDTO {
@@ -11,6 +13,8 @@ public class UsuarioDTO {
     private String CorreoElectronico;
     private String Contrasenia;
     private LocalDate fechaNacimiento;
+    private Rol rol;
+
 
     public int getIDUsuario() {
         return IDUsuario;
@@ -74,5 +78,13 @@ public class UsuarioDTO {
 
     public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 }
