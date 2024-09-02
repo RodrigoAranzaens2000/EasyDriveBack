@@ -17,7 +17,7 @@ public class Notificaciones {
     @Column(name = "FechaNotificacion")
     private LocalDate FechaNotificacion;
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "IDUsuario")
     private Usuario user;
 
     public Notificaciones() {
