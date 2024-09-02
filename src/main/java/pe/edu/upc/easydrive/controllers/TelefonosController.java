@@ -4,56 +4,57 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.easydrive.dtos.DireccionesDTO;
-import pe.edu.upc.easydrive.entities.Direcciones;
-import pe.edu.upc.easydrive.servicesinterfaces.IDireccionesService;
+import pe.edu.upc.easydrive.dtos.TelefonosDTO;
+import pe.edu.upc.easydrive.entities.Telefonos;
+import pe.edu.upc.easydrive.servicesinterfaces.ITelefonosService;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/Direcciones")
-public class DireccionesController {
+@RequestMapping("/Telefonos")
+public class TelefonosController {
     @Autowired
-    private IDireccionesService dS;
+    private ITelefonosService tS;
 
     @GetMapping
-    public List<DireccionesDTO> listar() {
-        return dS.list().stream().map(x -> {
+    public List<TelefonosDTO> listar() {
+        return tS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
-            return m.map(x, DireccionesDTO.class);
+            return m.map(x, TelefonosDTO.class);
         }).collect(Collectors.toList());
     }
 
     @PostMapping
     public void insertar(@RequestBody DireccionesDTO dto) {
         ModelMapper m = new ModelMapper();
-        Direcciones d = m.map(dto, Direcciones.class);
-        dS.insert(d);
+        Telefonos t = m.map(dto, Telefonos.class);
+        tS.insert(t);
     }
 
     @GetMapping("/{id}")
-    public DireccionesDTO listarId(@PathVariable("id") Integer id) {
+    public TelefonosDTO listarId(@PathVariable("id") Integer id) {
         ModelMapper m = new ModelMapper();
-        return m.map(dS.listId(id), DireccionesDTO.class);
+        return m.map(tS.listId(id), TelefonosDTO.class);
     }
 
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id) {
-        dS.delete(id);
+        tS.delete(id);
     }
 
     @PutMapping
-    public void modificar(@RequestBody DireccionesDTO dto) {
+    public void modificar(@RequestBody TelefonosDTO dto) {
         ModelMapper m = new ModelMapper();
-        Direcciones d = m.map(dto, Direcciones.class);
-        dS.update(d);
+        Telefonos t = m.map(dto, Telefonos.class);
+        tS.update(t);
     }
 
     @GetMapping("/busquedas")
-    public List<DireccionesDTO> BuscarEjemlo(String n) {
-        return dS.buscar(n).stream().map(x -> {
+    public List<TelefonosDTO> BuscarEjemlo(String n) {
+        return tS.buscar(n).stream().map(x -> {
             ModelMapper m = new ModelMapper();
-            return m.map(x, DireccionesDTO.class);
+            return m.map(x, TelefonosDTO.class);
         }).collect(Collectors.toList());
     }
 

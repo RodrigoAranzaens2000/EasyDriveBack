@@ -1,7 +1,6 @@
 package pe.edu.upc.easydrive.servicesinterfaces;
 
 import pe.edu.upc.easydrive.entities.Direcciones;
-import pe.edu.upc.easydrive.entities.Escuelas;
 
 import java.util.List;
 
