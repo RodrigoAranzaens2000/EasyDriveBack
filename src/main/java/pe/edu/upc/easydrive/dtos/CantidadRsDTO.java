@@ -1,7 +1,7 @@
 package pe.edu.upc.easydrive.dtos;
 
 public class CantidadRsDTO {
-    private String nombre;
+    private String nombre ;
     private int cantidadResenia;
 
     public int getCantidadResenia() {
