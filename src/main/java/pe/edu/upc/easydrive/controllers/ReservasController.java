@@ -3,13 +3,11 @@ package pe.edu.upc.easydrive.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.easydrive.dtos.DireccionesDTO;
-import pe.edu.upc.easydrive.dtos.ReservasDTO;
-import pe.edu.upc.easydrive.dtos.TelefonosDTO;
+import pe.edu.upc.easydrive.dtos.*;
 import pe.edu.upc.easydrive.entities.Reservas;
-import pe.edu.upc.easydrive.entities.Telefonos;
 import pe.edu.upc.easydrive.servicesinterfaces.IReservasService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,5 +56,29 @@ public class ReservasController {
             ModelMapper m = new ModelMapper();
             return m.map(x, ReservasDTO.class);
         }).collect(Collectors.toList());
+    }
+    @GetMapping("/suma")
+    public List<SumaDTO>sumaTotal(){
+        List<String[]> lista=rS.sumaService();
+        List<SumaDTO>listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+            SumaDTO dto=new SumaDTO();
+            dto.setNombre(columna[0]);
+            dto.setSumaReserva(Double.parseDouble(columna[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+    @GetMapping("/cantidad")
+    public List<CantidadRvDTO>cantidaReserva(){
+        List<String[]> lista=rS.cantidadService();
+        List<CantidadRvDTO>listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+            CantidadRvDTO dto=new CantidadRvDTO();
+            dto.setNombre(columna[0]);
+            dto.setCantidadReserva(Integer.parseInt(columna[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 }

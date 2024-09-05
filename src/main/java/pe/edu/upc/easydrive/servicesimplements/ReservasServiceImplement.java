@@ -43,4 +43,10 @@ public class ReservasServiceImplement implements IReservasService {
     public List<Reservas> buscar(String nombre) {
         return rR.buscar(nombre);
     }
+
+    @Override
+    public List<String[]> sumaService() { return rR.suma(); }
+
+    @Override
+    public List<String[]> cantidadService() { return rR.cantidad(); }
 }

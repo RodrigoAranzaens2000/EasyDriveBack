@@ -3,13 +3,13 @@ package pe.edu.upc.easydrive.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.easydrive.dtos.DireccionesDTO;
+import pe.edu.upc.easydrive.dtos.CantidadRsDTO;
+import pe.edu.upc.easydrive.dtos.CantidadRvDTO;
 import pe.edu.upc.easydrive.dtos.ReseniasDTO;
-import pe.edu.upc.easydrive.dtos.TelefonosDTO;
 import pe.edu.upc.easydrive.entities.Resenias;
-import pe.edu.upc.easydrive.entities.Telefonos;
 import pe.edu.upc.easydrive.servicesinterfaces.IReseniasService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,6 +58,18 @@ public class ReseniasController {
             ModelMapper m = new ModelMapper();
             return m.map(x, ReseniasDTO.class);
         }).collect(Collectors.toList());
+    }
+    @GetMapping("/cantidad")
+    public List<CantidadRsDTO>cantidadResenias() {
+        List<String[]> lista=rS.cantidadService();
+        List<CantidadRsDTO>listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+            CantidadRsDTO dto=new CantidadRsDTO();
+            dto.setNombre(columna[0]);
+            dto.setCantidadResenia(Integer.parseInt(columna[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 
 }

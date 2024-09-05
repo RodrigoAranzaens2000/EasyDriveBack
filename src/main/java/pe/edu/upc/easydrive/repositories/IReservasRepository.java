@@ -12,4 +12,18 @@ import java.util.List;
 public interface IReservasRepository extends JpaRepository<Reservas, Integer> {
     @Query("Select r from Reservas r where r.EstadoReserva like %:nombre%")
     public List<Reservas> buscar(@Param("nombre") String nombre);
+
+    @Query(value = "Select e.nombre, sum(r.monto)\n" +
+            " from escuelas e\n" +
+            " join reservas r\n" +
+            " on e.IDEscuela = r.IDEscuela\n" +
+            " group by e.nombre",nativeQuery = true)
+    public List<String[]>suma();
+
+    @Query(value = "Select e.nombre, count(r.IDReserva)\n" +
+            "from escuelas e\n" +
+            "join reservas r\n" +
+            "on e.IDEscuela = r.IDEscuela\n" +
+            "group by e.nombre",nativeQuery = true)
+    public List<String[]>cantidad();
 }

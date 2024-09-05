@@ -43,4 +43,7 @@ public class ReseniasServiceImplement implements IReseniasService {
     public List<Resenias> buscar(String nombre) {
         return rR.buscar(nombre);
     }
+
+    @Override
+    public List<String[]> cantidadService() { return rR.cantidad(); }
 }
