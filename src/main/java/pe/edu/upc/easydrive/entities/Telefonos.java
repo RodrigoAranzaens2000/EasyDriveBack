@@ -16,7 +16,7 @@ public class Telefonos {
     private String AnexoEscuelas;
     @ManyToOne
     @JoinColumn(name = "IDUsuario")
-    private Usuario user;
+    private Users user;
     @ManyToOne
     @JoinColumn(name = "IDEscuela")
     private Escuelas esc;
@@ -27,7 +27,7 @@ public class Telefonos {
     public Telefonos() {
     }
 
-    public Telefonos(int IDTelefono, String tipoDeTelefono, String numeroTelefono, String anexoEscuelas, Usuario user, Escuelas esc, CentrosMedicos centros) {
+    public Telefonos(int IDTelefono, String tipoDeTelefono, String numeroTelefono, String anexoEscuelas, Users user, Escuelas esc, CentrosMedicos centros) {
         this.IDTelefono = IDTelefono;
         this.TipoDeTelefono = tipoDeTelefono;
         this.NumeroTelefono = numeroTelefono;
@@ -69,11 +69,11 @@ public class Telefonos {
         AnexoEscuelas = anexoEscuelas;
     }
 
-    public Usuario getUser() {
+    public Users getUser() {
         return user;
     }
 
-    public void setUser(Usuario user) {
+    public void setUser(Users user) {
         this.user = user;
     }
 

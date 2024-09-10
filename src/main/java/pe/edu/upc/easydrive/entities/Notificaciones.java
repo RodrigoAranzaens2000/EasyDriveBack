@@ -18,12 +18,12 @@ public class Notificaciones {
     private LocalDate FechaNotificacion;
     @ManyToOne
     @JoinColumn(name = "IDUsuario")
-    private Usuario user;
+    private Users user;
 
     public Notificaciones() {
     }
 
-    public Notificaciones(int IDNotificacion, String titulo, String mensaje, LocalDate fechaNotificacion, Usuario user) {
+    public Notificaciones(int IDNotificacion, String titulo, String mensaje, LocalDate fechaNotificacion, Users user) {
         this.IDNotificacion = IDNotificacion;
         this.Titulo = titulo;
         this.Mensaje = mensaje;
@@ -63,11 +63,11 @@ public class Notificaciones {
         FechaNotificacion = fechaNotificacion;
     }
 
-    public Usuario getUser() {
+    public Users getUser() {
         return user;
     }
 
-    public void setUser(Usuario user) {
+    public void setUser(Users user) {
         this.user = user;
     }
 }

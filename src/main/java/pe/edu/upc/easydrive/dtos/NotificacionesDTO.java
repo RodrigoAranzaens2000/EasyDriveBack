@@ -1,6 +1,6 @@
 package pe.edu.upc.easydrive.dtos;
 
-import pe.edu.upc.easydrive.entities.Usuario;
+import pe.edu.upc.easydrive.entities.Users;
 
 import java.time.LocalDate;
 
@@ -9,7 +9,7 @@ public class NotificacionesDTO {
     private String Titulo;
     private String Mensaje;
     private LocalDate FechaNotificacion;
-    private Usuario user;
+    private Users user;
 
     public int getIDNotificacion() {
         return IDNotificacion;
@@ -43,11 +43,11 @@ public class NotificacionesDTO {
         FechaNotificacion = fechaNotificacion;
     }
 
-    public Usuario getUser() {
+    public Users getUser() {
         return user;
     }
 
-    public void setUser(Usuario user) {
+    public void setUser(Users user) {
         this.user = user;
     }
 }

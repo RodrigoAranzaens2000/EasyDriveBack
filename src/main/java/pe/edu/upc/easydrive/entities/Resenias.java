@@ -10,15 +10,15 @@ public class Resenias {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int IDResenia;
-    @Column(name = "Calificacion" , nullable = false )
+    @Column(name = "Calificacion", nullable = false)
     private float Calificacion;
-    @Column(name = "Comentario" , nullable = false  , length = 500)
+    @Column(name = "Comentario", nullable = false, length = 500)
     private String Comentario;
-    @Column(name = "FechaReseña" , nullable = false )
+    @Column(name = "FechaReseña", nullable = false)
     private LocalDate FechaResenia;
     @ManyToOne
     @JoinColumn(name = "IDUsuario")
-    private Usuario user;
+    private Users user;
     @ManyToOne
     @JoinColumn(name = "IDEscuelas")
     private Escuelas esc;
@@ -29,7 +29,7 @@ public class Resenias {
     public Resenias() {
     }
 
-    public Resenias(int IDResenia, float calificacion, String comentario, LocalDate fechaResenia, Usuario user, Escuelas esc, CentrosMedicos centros) {
+    public Resenias(int IDResenia, float calificacion, String comentario, LocalDate fechaResenia, Users user, Escuelas esc, CentrosMedicos centros) {
         this.IDResenia = IDResenia;
         this.Calificacion = calificacion;
         this.Comentario = comentario;
@@ -71,11 +71,11 @@ public class Resenias {
         FechaResenia = fechaResenia;
     }
 
-    public Usuario getUser() {
+    public Users getUser() {
         return user;
     }
 
-    public void setUser(Usuario user) {
+    public void setUser(Users user) {
         this.user = user;
     }
 

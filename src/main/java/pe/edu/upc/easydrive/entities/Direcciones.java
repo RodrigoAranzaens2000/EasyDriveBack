@@ -24,7 +24,7 @@ public class Direcciones {
     private Long Longitud;
     @ManyToOne
     @JoinColumn(name = "IDUsuario")
-    private Usuario user;
+    private Users user;
     @ManyToOne
     @JoinColumn(name = "IDEscuela")
     private Escuelas esc;
@@ -32,7 +32,7 @@ public class Direcciones {
     public Direcciones() {
     }
 
-    public Direcciones(int IDdireccion, String calle, String ciudad, String estadProvincia, int codigoPostal, String pais, Long latitud, Long longitud, Usuario user, Escuelas esc) {
+    public Direcciones(int IDdireccion, String calle, String ciudad, String estadProvincia, int codigoPostal, String pais, Long latitud, Long longitud, Users user, Escuelas esc) {
         this.IDdireccion = IDdireccion;
         this.Calle = calle;
         this.Ciudad = ciudad;
@@ -109,11 +109,11 @@ public class Direcciones {
         Longitud = longitud;
     }
 
-    public Usuario getUser() {
+    public Users getUser() {
         return user;
     }
 
-    public void setUser(Usuario user) {
+    public void setUser(Users user) {
         this.user = user;
     }
 

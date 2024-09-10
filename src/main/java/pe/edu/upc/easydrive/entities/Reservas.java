@@ -18,7 +18,7 @@ public class Reservas {
     private String EstadoReserva;
     @ManyToOne
     @JoinColumn(name = "IDUsuario")
-    private Usuario user;
+    private Users user;
     @ManyToOne
     @JoinColumn(name = "IDEscuela")
     private Escuelas esc;
@@ -32,7 +32,7 @@ public class Reservas {
     public Reservas() {
     }
 
-    public Reservas(int IDReserva, LocalDate fechaReserva, float monto, String estadoReserva, Usuario user, Escuelas esc, CentrosMedicos centros, Servicio ser) {
+    public Reservas(int IDReserva, LocalDate fechaReserva, float monto, String estadoReserva, Users user, Escuelas esc, CentrosMedicos centros, Servicio ser) {
         this.IDReserva = IDReserva;
         this.FechaReserva = fechaReserva;
         this.monto = monto;
@@ -75,11 +75,11 @@ public class Reservas {
         EstadoReserva = estadoReserva;
     }
 
-    public Usuario getUser() {
+    public Users getUser() {
         return user;
     }
 
-    public void setUser(Usuario user) {
+    public void setUser(Users user) {
         this.user = user;
     }
 

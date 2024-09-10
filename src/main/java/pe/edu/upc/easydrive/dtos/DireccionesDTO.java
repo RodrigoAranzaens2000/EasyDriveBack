@@ -1,7 +1,7 @@
 package pe.edu.upc.easydrive.dtos;
 
 import pe.edu.upc.easydrive.entities.Escuelas;
-import pe.edu.upc.easydrive.entities.Usuario;
+import pe.edu.upc.easydrive.entities.Users;
 
 public class DireccionesDTO {
     private int IDdireccion;
@@ -12,7 +12,7 @@ public class DireccionesDTO {
     private String Pais;
     private Long Latitud;
     private Long Longitud;
-    private Usuario user;
+    private Users user;
     private Escuelas esc;
 
     public int getIDdireccion() {
@@ -79,11 +79,11 @@ public class DireccionesDTO {
         Longitud = longitud;
     }
 
-    public Usuario getUser() {
+    public Users getUser() {
         return user;
     }
 
-    public void setUser(Usuario user) {
+    public void setUser(Users user) {
         this.user = user;
     }
 

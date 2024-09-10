@@ -2,14 +2,14 @@ package pe.edu.upc.easydrive.dtos;
 
 import pe.edu.upc.easydrive.entities.CentrosMedicos;
 import pe.edu.upc.easydrive.entities.Escuelas;
-import pe.edu.upc.easydrive.entities.Usuario;
+import pe.edu.upc.easydrive.entities.Users;
 
 public class TelefonosDTO {
     private int IDTelefono;
     private String TipoDeTelefono;
     private String NumeroTelefono;
     private String AnexoEscuelas;
-    private Usuario user;
+    private Users user;
     private Escuelas esc;
     private CentrosMedicos centros;
 
@@ -45,11 +45,11 @@ public class TelefonosDTO {
         AnexoEscuelas = anexoEscuelas;
     }
 
-    public Usuario getUser() {
+    public Users getUser() {
         return user;
     }
 
-    public void setUser(Usuario user) {
+    public void setUser(Users user) {
         this.user = user;
     }
 
