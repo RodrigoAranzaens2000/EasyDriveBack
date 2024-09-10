@@ -81,4 +81,17 @@ public class ReservasController {
         }
         return listaDTO;
     }
+
+    @GetMapping("/gananciaspromociones")
+    public List<GananciasPromosDTO>gananciasPorPromos(){
+        List<String[]> lista=rS.GananciasPorPromociones();
+        List<GananciasPromosDTO>listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+            GananciasPromosDTO dto=new GananciasPromosDTO();
+            dto.setNombrePromocion(columna[0]);
+            dto.setGanancia(Float.parseFloat(columna[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
 }

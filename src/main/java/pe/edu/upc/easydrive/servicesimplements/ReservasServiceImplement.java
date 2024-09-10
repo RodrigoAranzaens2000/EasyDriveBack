@@ -49,4 +49,9 @@ public class ReservasServiceImplement implements IReservasService {
 
     @Override
     public List<String[]> cantidadService() { return rR.cantidad(); }
+
+    @Override
+    public List<String[]> GananciasPorPromociones() {
+        return rR.GananciasPorPromociones();
+    }
 }

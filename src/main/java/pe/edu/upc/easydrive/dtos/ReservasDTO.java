@@ -1,9 +1,6 @@
 package pe.edu.upc.easydrive.dtos;
 
-import pe.edu.upc.easydrive.entities.CentrosMedicos;
-import pe.edu.upc.easydrive.entities.Escuelas;
-import pe.edu.upc.easydrive.entities.Servicio;
-import pe.edu.upc.easydrive.entities.Users;
+import pe.edu.upc.easydrive.entities.*;
 
 import java.time.LocalDate;
 
@@ -16,6 +13,7 @@ public class ReservasDTO {
     private Escuelas esc;
     private CentrosMedicos centros;
     private Servicio ser;
+    private Promocion prom;
 
     public int getIDReserva() {
         return IDReserva;
@@ -79,5 +77,13 @@ public class ReservasDTO {
 
     public void setSer(Servicio ser) {
         this.ser = ser;
+    }
+
+    public Promocion getProm() {
+        return prom;
+    }
+
+    public void setProm(Promocion prom) {
+        this.prom = prom;
     }
 }

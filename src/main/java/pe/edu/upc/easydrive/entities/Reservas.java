@@ -28,11 +28,14 @@ public class Reservas {
     @ManyToOne
     @JoinColumn(name = "IDServicio")
     private Servicio ser;
+    @ManyToOne
+    @JoinColumn(name = "IDPromocion")
+    private Promocion prom ;
 
     public Reservas() {
     }
 
-    public Reservas(int IDReserva, LocalDate fechaReserva, float monto, String estadoReserva, Users user, Escuelas esc, CentrosMedicos centros, Servicio ser) {
+    public Reservas(int IDReserva, LocalDate fechaReserva, float monto, String estadoReserva, Users user, Escuelas esc, CentrosMedicos centros, Servicio ser , Promocion prom) {
         this.IDReserva = IDReserva;
         this.FechaReserva = fechaReserva;
         this.monto = monto;
@@ -41,6 +44,7 @@ public class Reservas {
         this.esc = esc;
         this.centros = centros;
         this.ser = ser;
+        this.prom = prom;
     }
 
     public int getIDReserva() {
@@ -105,5 +109,13 @@ public class Reservas {
 
     public void setSer(Servicio ser) {
         this.ser = ser;
+    }
+
+    public Promocion getProm() {
+        return prom;
+    }
+
+    public void setProm(Promocion prom) {
+        this.prom = prom;
     }
 }
