@@ -57,24 +57,26 @@ public class ReservasController {
             return m.map(x, ReservasDTO.class);
         }).collect(Collectors.toList());
     }
+
     @GetMapping("/suma")
-    public List<SumaDTO>sumaTotal(){
-        List<String[]> lista=rS.sumaService();
-        List<SumaDTO>listaDTO=new ArrayList<>();
-        for(String[] columna:lista){
-            SumaDTO dto=new SumaDTO();
+    public List<SumaDTO> sumaTotal() {
+        List<String[]> lista = rS.sumaService();
+        List<SumaDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            SumaDTO dto = new SumaDTO();
             dto.setNombre(columna[0]);
             dto.setSumaReserva(Double.parseDouble(columna[1]));
             listaDTO.add(dto);
         }
         return listaDTO;
     }
+
     @GetMapping("/cantidad")
-    public List<CantidadRvDTO>cantidaReserva(){
-        List<String[]> lista=rS.cantidadService();
-        List<CantidadRvDTO>listaDTO=new ArrayList<>();
-        for(String[] columna:lista){
-            CantidadRvDTO dto=new CantidadRvDTO();
+    public List<CantidadRvDTO> cantidaReserva() {
+        List<String[]> lista = rS.cantidadService();
+        List<CantidadRvDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            CantidadRvDTO dto = new CantidadRvDTO();
             dto.setNombre(columna[0]);
             dto.setCantidadReserva(Integer.parseInt(columna[1]));
             listaDTO.add(dto);
@@ -83,13 +85,28 @@ public class ReservasController {
     }
 
     @GetMapping("/gananciaspromociones")
-    public List<GananciasPromosDTO>gananciasPorPromos(){
-        List<String[]> lista=rS.GananciasPorPromociones();
-        List<GananciasPromosDTO>listaDTO=new ArrayList<>();
-        for(String[] columna:lista){
-            GananciasPromosDTO dto=new GananciasPromosDTO();
+    public List<GananciasPromosDTO> gananciasPorPromos() {
+        List<String[]> lista = rS.GananciasPorPromociones();
+        List<GananciasPromosDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            GananciasPromosDTO dto = new GananciasPromosDTO();
             dto.setNombrePromocion(columna[0]);
             dto.setGanancia(Float.parseFloat(columna[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+
+    @GetMapping("/analisisservicios")
+    public List<AnalisisServiciosDTO> analisisDeLosServicios() {
+        List<String[]> lista = rS.AnalisisServicios();
+        List<AnalisisServiciosDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            AnalisisServiciosDTO dto = new AnalisisServiciosDTO();
+            dto.setNombreServicio(columna[0]);
+            dto.setRecaudadoPorServicio(Float.parseFloat(columna[1]));
+            dto.setCantidadServicios(Integer.parseInt(columna[2]));
+
             listaDTO.add(dto);
         }
         return listaDTO;

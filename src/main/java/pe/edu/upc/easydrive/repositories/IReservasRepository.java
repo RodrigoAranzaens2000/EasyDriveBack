@@ -35,4 +35,11 @@ public interface IReservasRepository extends JpaRepository<Reservas, Integer> {
             "GROUP BY p.idpromocion \n" +
             "ORDER BY SUM(s.precio) DESC" ,nativeQuery = true)
     public List<String[]> GananciasPorPromociones();
+
+    @Query(value = "SELECT s.nombre_servicio , SUM(precio) , COUNT(s.idservicio) FROM servicio s\n" +
+            "JOIN reservas r\n" +
+            "ON s.idservicio = r.idservicio\n" +
+            "GROUP BY s.idservicio\n" +
+            "ORDER BY SUM(precio) desc;" ,nativeQuery = true)
+    public List<String[]> AnalisisServicios();
 }

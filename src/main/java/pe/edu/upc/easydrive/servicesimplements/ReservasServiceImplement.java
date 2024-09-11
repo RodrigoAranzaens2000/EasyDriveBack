@@ -45,13 +45,22 @@ public class ReservasServiceImplement implements IReservasService {
     }
 
     @Override
-    public List<String[]> sumaService() { return rR.suma(); }
+    public List<String[]> sumaService() {
+        return rR.suma();
+    }
 
     @Override
-    public List<String[]> cantidadService() { return rR.cantidad(); }
+    public List<String[]> cantidadService() {
+        return rR.cantidad();
+    }
 
     @Override
     public List<String[]> GananciasPorPromociones() {
         return rR.GananciasPorPromociones();
+    }
+
+    @Override
+    public List<String[]> AnalisisServicios() {
+        return rR.AnalisisServicios();
     }
 }

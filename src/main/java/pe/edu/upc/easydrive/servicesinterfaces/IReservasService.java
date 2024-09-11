@@ -22,4 +22,6 @@ public interface IReservasService {
     public List<String[]>cantidadService();
 
     public List<String[]> GananciasPorPromociones();
+
+    public List<String[]> AnalisisServicios();
 }
