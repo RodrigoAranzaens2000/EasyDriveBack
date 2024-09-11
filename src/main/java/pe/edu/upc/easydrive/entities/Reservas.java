@@ -12,8 +12,6 @@ public class Reservas {
     private int IDReserva;
     @Column(name = "FechaReserva", nullable = false)
     private LocalDate FechaReserva;
-    @Column(name = "monto", nullable = false)
-    private float monto;
     @Column(name = "EstadoReserva", nullable = false, length = 50)
     private String EstadoReserva;
     @ManyToOne
@@ -35,10 +33,9 @@ public class Reservas {
     public Reservas() {
     }
 
-    public Reservas(int IDReserva, LocalDate fechaReserva, float monto, String estadoReserva, Users user, Escuelas esc, CentrosMedicos centros, Servicio ser , Promocion prom) {
+    public Reservas(int IDReserva, LocalDate fechaReserva, String estadoReserva, Users user, Escuelas esc, CentrosMedicos centros, Servicio ser , Promocion prom) {
         this.IDReserva = IDReserva;
         this.FechaReserva = fechaReserva;
-        this.monto = monto;
         this.EstadoReserva = estadoReserva;
         this.user = user;
         this.esc = esc;
@@ -61,14 +58,6 @@ public class Reservas {
 
     public void setFechaReserva(LocalDate fechaReserva) {
         FechaReserva = fechaReserva;
-    }
-
-    public float getMonto() {
-        return monto;
-    }
-
-    public void setMonto(float monto) {
-        this.monto = monto;
     }
 
     public String getEstadoReserva() {

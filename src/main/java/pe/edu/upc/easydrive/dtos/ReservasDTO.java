@@ -7,7 +7,6 @@ import java.time.LocalDate;
 public class ReservasDTO {
     private int IDReserva;
     private LocalDate FechaReserva;
-    private float monto;
     private String EstadoReserva;
     private Users user;
     private Escuelas esc;
@@ -29,14 +28,6 @@ public class ReservasDTO {
 
     public void setFechaReserva(LocalDate fechaReserva) {
         FechaReserva = fechaReserva;
-    }
-
-    public float getMonto() {
-        return monto;
-    }
-
-    public void setMonto(float monto) {
-        this.monto = monto;
     }
 
     public String getEstadoReserva() {
