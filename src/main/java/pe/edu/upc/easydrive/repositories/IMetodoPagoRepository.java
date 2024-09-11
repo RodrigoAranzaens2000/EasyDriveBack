@@ -10,6 +10,4 @@ import java.util.List;
 
 @Repository
 public interface IMetodoPagoRepository extends JpaRepository<MetodoPago, Integer> {
-    @Query("Select m from MetodoPago m where m.MetodoPago like %:nombre%")
-    public List<MetodoPago> buscar(@Param("nombre") String nombre);
 }

@@ -15,5 +15,4 @@ public interface IMetodoPagoService {
 
     public void update(MetodoPago met);
 
-    public List<MetodoPago> buscar(String nombre);
 }

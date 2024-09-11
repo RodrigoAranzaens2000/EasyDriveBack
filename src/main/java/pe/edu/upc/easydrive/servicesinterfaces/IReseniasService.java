@@ -15,7 +15,5 @@ public interface IReseniasService {
 
     public void update(Resenias res);
 
-    public List<Resenias> buscar(String nombre);
-
     public List<String[]> cantidadService();
 }

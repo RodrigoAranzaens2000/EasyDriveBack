@@ -52,13 +52,7 @@ public class ReseniasController {
         rS.update(r);
     }
 
-    @GetMapping("/busquedas")
-    public List<ReseniasDTO> BuscarEjemlo(String n) {
-        return rS.buscar(n).stream().map(x -> {
-            ModelMapper m = new ModelMapper();
-            return m.map(x, ReseniasDTO.class);
-        }).collect(Collectors.toList());
-    }
+
     @GetMapping("/cantidad")
     public List<CantidadRsDTO>cantidadResenias() {
         List<String[]> lista=rS.cantidadService();

@@ -49,12 +49,4 @@ public class DireccionesController {
         dS.update(d);
     }
 
-    @GetMapping("/busquedas")
-    public List<DireccionesDTO> BuscarEjemlo(String n) {
-        return dS.buscar(n).stream().map(x -> {
-            ModelMapper m = new ModelMapper();
-            return m.map(x, DireccionesDTO.class);
-        }).collect(Collectors.toList());
-    }
-
 }

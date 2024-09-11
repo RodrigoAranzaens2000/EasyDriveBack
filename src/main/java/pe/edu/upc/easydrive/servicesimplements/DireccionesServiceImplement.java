@@ -38,8 +38,4 @@ public class DireccionesServiceImplement implements IDireccionesService {
         dR.save(direc);
     }
 
-    @Override
-    public List<Direcciones> buscar(String nombre) {
-        return dR.buscar(nombre);
-    }
 }

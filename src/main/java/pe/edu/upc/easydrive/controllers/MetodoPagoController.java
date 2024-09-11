@@ -49,11 +49,4 @@ public class MetodoPagoController {
         mS.update(mp);
     }
 
-    @GetMapping("/busquedas")
-    public List<MetodoPagoDTO> BuscarEjemlo(String n) {
-        return mS.buscar(n).stream().map(x -> {
-            ModelMapper m = new ModelMapper();
-            return m.map(x, MetodoPagoDTO.class);
-        }).collect(Collectors.toList());
-    }
 }

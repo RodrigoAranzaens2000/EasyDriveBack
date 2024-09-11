@@ -15,5 +15,4 @@ public interface IDireccionesService {
 
     public void update(Direcciones direc);
 
-    public List<Direcciones> buscar(String nombre);
 }

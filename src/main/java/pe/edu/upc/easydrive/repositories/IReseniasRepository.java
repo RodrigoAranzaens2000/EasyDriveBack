@@ -11,8 +11,6 @@ import java.util.List;
 
 @Repository
 public interface IReseniasRepository extends JpaRepository<Resenias , Integer> {
-    @Query("Select r from Resenias r where r.Comentario like %:nombre%")
-    public List<Resenias> buscar(@Param("nombre") String nombre);
 
     @Query(value = "Select e.nombre, count(r.IDResenia)\n" +
             " from escuelas e\n" +

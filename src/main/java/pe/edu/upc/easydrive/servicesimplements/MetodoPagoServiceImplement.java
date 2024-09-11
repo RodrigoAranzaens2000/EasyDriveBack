@@ -38,8 +38,4 @@ public class MetodoPagoServiceImplement implements IMetodoPagoService {
         mR.save(met);
     }
 
-    @Override
-    public List<MetodoPago> buscar(String nombre) {
-        return mR.buscar(nombre);
-    }
 }
