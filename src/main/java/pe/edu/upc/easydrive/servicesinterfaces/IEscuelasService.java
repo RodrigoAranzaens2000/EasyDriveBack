@@ -16,4 +16,6 @@ public interface IEscuelasService {
     public void update(Escuelas esc);
 
     public List<Escuelas> buscar(String nombre);
+
+    public List<String[]> CalificacionPromedioPorEscuelas();
 }

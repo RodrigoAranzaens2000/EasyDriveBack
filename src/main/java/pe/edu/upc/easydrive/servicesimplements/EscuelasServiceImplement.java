@@ -42,4 +42,9 @@ public class EscuelasServiceImplement implements IEscuelasService {
     public List<Escuelas> buscar(String nombre) {
         return eR.buscar(nombre);
     }
+
+    @Override
+    public List<String[]> CalificacionPromedioPorEscuelas() {
+        return eR.CalificacionPromedioPorEscuelas();
+    }
 }

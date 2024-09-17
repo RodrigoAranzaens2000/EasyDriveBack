@@ -13,4 +13,10 @@ import java.util.List;
 public interface IEscuelasRepository extends JpaRepository<Escuelas, Integer> {
     @Query("Select e from Escuelas e where e.nombre like %:nombre%")
     public List<Escuelas> buscar(@Param("nombre") String nombre);
+    @Query(value = "SELECT e.nombre, AVG(r.calificacion) FROM escuelas e\n" +
+            "JOIN resenias r\n" +
+            "ON e.idescuela = r.idescuelas\n" +
+            "GROUP BY e.nombre \n" +
+            "ORDER BY AVG(r.calificacion) desc\n",nativeQuery = true)
+    public List<String[]> CalificacionPromedioPorEscuelas();
 }
