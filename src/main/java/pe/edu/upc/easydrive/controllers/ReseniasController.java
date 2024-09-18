@@ -4,7 +4,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.easydrive.dtos.CantidadRsDTO;
-import pe.edu.upc.easydrive.dtos.CantidadRvDTO;
 import pe.edu.upc.easydrive.dtos.ReseniasDTO;
 import pe.edu.upc.easydrive.entities.Resenias;
 import pe.edu.upc.easydrive.servicesinterfaces.IReseniasService;
@@ -54,11 +53,11 @@ public class ReseniasController {
 
 
     @GetMapping("/cantidad")
-    public List<CantidadRsDTO>cantidadResenias() {
-        List<String[]> lista=rS.cantidadService();
-        List<CantidadRsDTO>listaDTO=new ArrayList<>();
-        for(String[] columna:lista){
-            CantidadRsDTO dto=new CantidadRsDTO();
+    public List<CantidadRsDTO> cantidadResenias() {
+        List<String[]> lista = rS.cantidadService();
+        List<CantidadRsDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            CantidadRsDTO dto = new CantidadRsDTO();
             dto.setNombre(columna[0]);
             dto.setCantidadResenia(Integer.parseInt(columna[1]));
             listaDTO.add(dto);

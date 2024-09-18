@@ -4,9 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.easydrive.dtos.CentrosMedicosDTO;
-import pe.edu.upc.easydrive.dtos.ServicioDTO;
 import pe.edu.upc.easydrive.entities.CentrosMedicos;
-import pe.edu.upc.easydrive.entities.Servicio;
 import pe.edu.upc.easydrive.servicesinterfaces.ICentrosMedicosService;
 
 import java.util.List;

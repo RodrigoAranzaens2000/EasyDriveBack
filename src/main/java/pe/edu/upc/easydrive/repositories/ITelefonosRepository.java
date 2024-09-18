@@ -9,7 +9,7 @@ import pe.edu.upc.easydrive.entities.Telefonos;
 import java.util.List;
 
 @Repository
-public interface ITelefonosRepository extends JpaRepository<Telefonos , Integer> {
+public interface ITelefonosRepository extends JpaRepository<Telefonos, Integer> {
     @Query("Select t from Telefonos t where t.NumeroTelefono like %:nombre%")
     public List<Telefonos> buscar(@Param("nombre") String nombre);
 }

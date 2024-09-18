@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.easydrive.dtos.CalificacionesEscuelasDTO;
 import pe.edu.upc.easydrive.dtos.EscuelasDTO;
-import pe.edu.upc.easydrive.dtos.GananciasPromosDTO;
 import pe.edu.upc.easydrive.entities.Escuelas;
 import pe.edu.upc.easydrive.servicesinterfaces.IEscuelasService;
 

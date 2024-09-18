@@ -51,12 +51,11 @@ public class PromocionController {
 
     @GetMapping("/busquedas")
     public List<PromocionDTO> buscarEjem(String n) {
-        return pS.buscar(n).stream().map(x-> {
+        return pS.buscar(n).stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, PromocionDTO.class);
         }).collect(Collectors.toList());
     }
-
 
 
 }

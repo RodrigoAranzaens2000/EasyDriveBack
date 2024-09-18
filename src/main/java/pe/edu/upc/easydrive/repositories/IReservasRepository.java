@@ -17,15 +17,15 @@ public interface IReservasRepository extends JpaRepository<Reservas, Integer> {
             " from escuelas e\n" +
             " join reservas r\n" +
             " on e.IDEscuela = r.IDEscuela\n" +
-            " group by e.nombre",nativeQuery = true)
-    public List<String[]>suma();
+            " group by e.nombre", nativeQuery = true)
+    public List<String[]> suma();
 
     @Query(value = "Select e.nombre, count(r.IDReserva)\n" +
             "from escuelas e\n" +
             "join reservas r\n" +
             "on e.IDEscuela = r.IDEscuela\n" +
-            "group by e.nombre",nativeQuery = true)
-    public List<String[]>cantidad();
+            "group by e.nombre", nativeQuery = true)
+    public List<String[]> cantidad();
 
     @Query(value = "SELECT nombre_promocion , SUM(s.precio) from servicio s\n" +
             "JOIN reservas r\n" +
@@ -33,13 +33,13 @@ public interface IReservasRepository extends JpaRepository<Reservas, Integer> {
             "JOIN promocion p\n" +
             "ON p.idpromocion = r.idpromocion\n" +
             "GROUP BY p.idpromocion \n" +
-            "ORDER BY SUM(s.precio) DESC" ,nativeQuery = true)
+            "ORDER BY SUM(s.precio) DESC", nativeQuery = true)
     public List<String[]> GananciasPorPromociones();
 
     @Query(value = "SELECT s.nombre_servicio , SUM(precio) , COUNT(s.idservicio) FROM servicio s\n" +
             "JOIN reservas r\n" +
             "ON s.idservicio = r.idservicio\n" +
             "GROUP BY s.idservicio\n" +
-            "ORDER BY SUM(precio) desc;" ,nativeQuery = true)
+            "ORDER BY SUM(precio) desc;", nativeQuery = true)
     public List<String[]> AnalisisServicios();
 }

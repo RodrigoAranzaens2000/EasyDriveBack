@@ -4,10 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.easydrive.dtos.CalendarioDTO;
-import pe.edu.upc.easydrive.dtos.DireccionesDTO;
-import pe.edu.upc.easydrive.dtos.TelefonosDTO;
 import pe.edu.upc.easydrive.entities.Calendario;
-import pe.edu.upc.easydrive.entities.Telefonos;
 import pe.edu.upc.easydrive.servicesinterfaces.ICalendarioService;
 
 import java.util.List;

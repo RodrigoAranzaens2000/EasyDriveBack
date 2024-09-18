@@ -3,11 +3,8 @@ package pe.edu.upc.easydrive.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.easydrive.dtos.DireccionesDTO;
 import pe.edu.upc.easydrive.dtos.PagosDTO;
-import pe.edu.upc.easydrive.dtos.TelefonosDTO;
 import pe.edu.upc.easydrive.entities.Pagos;
-import pe.edu.upc.easydrive.entities.Telefonos;
 import pe.edu.upc.easydrive.servicesinterfaces.IPagosService;
 
 import java.util.List;

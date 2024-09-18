@@ -3,7 +3,6 @@ package pe.edu.upc.easydrive.servicesimplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.easydrive.entities.Promocion;
-import pe.edu.upc.easydrive.entities.Servicio;
 import pe.edu.upc.easydrive.repositories.IPromocionRepository;
 import pe.edu.upc.easydrive.servicesinterfaces.IPromocionService;
 

@@ -1,7 +1,6 @@
 package pe.edu.upc.easydrive.servicesinterfaces;
 
 import pe.edu.upc.easydrive.entities.Pagos;
-import pe.edu.upc.easydrive.entities.Telefonos;
 
 import java.util.List;
 
