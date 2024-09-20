@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/Direcciones")
+@RequestMapping("/direcciones")
 public class DireccionesController {
     @Autowired
     private IDireccionesService dS;

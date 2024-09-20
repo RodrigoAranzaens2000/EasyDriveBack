@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/Resenias")
+@RequestMapping("/resenias")
 public class ReseniasController {
     @Autowired
     private IReseniasService rS;

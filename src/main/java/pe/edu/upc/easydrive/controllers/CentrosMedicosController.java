@@ -2,6 +2,7 @@ package pe.edu.upc.easydrive.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.easydrive.dtos.CentrosMedicosDTO;
 import pe.edu.upc.easydrive.entities.CentrosMedicos;
@@ -11,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/Centros")
+@RequestMapping("/centros")
 public class CentrosMedicosController {
     @Autowired
     private ICentrosMedicosService cS;
@@ -25,6 +26,7 @@ public class CentrosMedicosController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAuthority('administrador')")
     public void insertar(@RequestBody CentrosMedicosDTO dto) {
         ModelMapper m = new ModelMapper();
         CentrosMedicos c = m.map(dto, CentrosMedicos.class);
@@ -38,11 +40,13 @@ public class CentrosMedicosController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('administrador')")
     public void eliminar(@PathVariable("id") Integer id) {
         cS.delete(id);
     }
 
     @PutMapping
+    @PreAuthorize("hasAuthority('administrador')")
     public void modificar(@RequestBody CentrosMedicosDTO dto) {
         ModelMapper m = new ModelMapper();
         CentrosMedicos c = m.map(dto, CentrosMedicos.class);

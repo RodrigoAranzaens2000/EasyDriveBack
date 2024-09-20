@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/Metodo")
+@RequestMapping("/metodo")
 public class MetodoPagoController {
     @Autowired
     private IMetodoPagoService mS;

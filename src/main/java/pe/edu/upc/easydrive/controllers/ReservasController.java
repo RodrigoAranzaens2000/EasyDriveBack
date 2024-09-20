@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/Reservas")
+@RequestMapping("/reservas")
 public class ReservasController {
     @Autowired
     private IReservasService rS;

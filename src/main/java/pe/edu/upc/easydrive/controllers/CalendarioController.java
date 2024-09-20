@@ -2,6 +2,7 @@ package pe.edu.upc.easydrive.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.easydrive.dtos.CalendarioDTO;
 import pe.edu.upc.easydrive.entities.Calendario;
@@ -11,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/Calendario")
+@RequestMapping("/calendario")
 public class CalendarioController {
     @Autowired
     private ICalendarioService cS;
@@ -25,6 +26,7 @@ public class CalendarioController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAnyAuthority('profesor' , 'administrador')")
     public void insertar(@RequestBody CalendarioDTO dto) {
         ModelMapper m = new ModelMapper();
         Calendario c = m.map(dto, Calendario.class);
@@ -38,6 +40,7 @@ public class CalendarioController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyAuthority('profesor' , 'administrador')")
     public void eliminar(@PathVariable("id") Integer id) {
         cS.delete(id);
     }

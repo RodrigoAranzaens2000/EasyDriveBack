@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/Telefonos")
+@RequestMapping("/telefonos")
 public class TelefonosController {
     @Autowired
     private ITelefonosService tS;
