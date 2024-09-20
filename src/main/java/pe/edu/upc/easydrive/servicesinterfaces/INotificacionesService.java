@@ -16,4 +16,7 @@ public interface INotificacionesService {
     public void update(Notificaciones not);
 
     public List<Notificaciones> buscar(String nombre);
+
+    public List<String[]>numeronotificaciones();
+
 }

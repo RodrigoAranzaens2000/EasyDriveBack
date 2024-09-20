@@ -111,4 +111,17 @@ public class ReservasController {
         }
         return listaDTO;
     }
+
+    @GetMapping("/cantidadcentrosmedicos")
+    public List<CantidadRsCDTO> cantidaReservac() {
+        List<String[]> lista = rS.cantidadc();
+        List<CantidadRsCDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            CantidadRsCDTO dto = new CantidadRsCDTO();
+            dto.setNombre(columna[0]);
+            dto.setCantidad(Integer.parseInt(columna[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
 }

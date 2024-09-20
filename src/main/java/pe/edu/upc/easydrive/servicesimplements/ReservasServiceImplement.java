@@ -63,4 +63,7 @@ public class ReservasServiceImplement implements IReservasService {
     public List<String[]> AnalisisServicios() {
         return rR.AnalisisServicios();
     }
+
+    @Override
+    public List<String[]> cantidadc() {  return rR.cantidadc();  }
 }

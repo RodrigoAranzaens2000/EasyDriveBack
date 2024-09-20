@@ -27,6 +27,14 @@ public interface IReservasRepository extends JpaRepository<Reservas, Integer> {
             "group by e.nombre", nativeQuery = true)
     public List<String[]> cantidad();
 
+    @Query(value = "Select c.nombre, count(r.IDReserva)\n" +
+            "            from centros_medicos c\n" +
+            "            join reservas r\n" +
+            "            on c.idcentro = r.idcentro\n" +
+            "            group by c.nombre", nativeQuery = true)
+    public List<String[]> cantidadc();
+
+
     @Query(value = "SELECT nombre_promocion , SUM(s.precio) from servicio s\n" +
             "JOIN reservas r\n" +
             "ON s.idservicio = r.idservicio\n" +

@@ -11,4 +11,6 @@ public interface ICentrosMedicosService {
     public void delete(int id);
     public void update(CentrosMedicos cen);
     public List<CentrosMedicos>buscar(String nombre);
+    public List<String[]> promedioreseniacentros();
+
 }

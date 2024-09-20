@@ -12,4 +12,12 @@ import java.util.List;
 public interface INotificacionesRepository extends JpaRepository<Notificaciones, Integer> {
     @Query("Select n from Notificaciones n where n.Titulo like %:nombre%")
     public List<Notificaciones> buscar(@Param("nombre") String nombre);
+
+
+    @Query(value = "SELECT u.username,count (n.idnotificacion) FROM users u\n" +
+            "            join notificaciones n\n" +
+            "            on u.id = n.idusuario\n" +
+            "            group by u.username", nativeQuery = true)
+    public List<String[]>numeronotificaciones();
+
 }

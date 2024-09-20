@@ -43,4 +43,7 @@ public class NotificacionesServiceImplement implements INotificacionesService {
     public List<Notificaciones> buscar(String nombre) {
         return nS.buscar(nombre);
     }
+
+    @Override
+    public List<String[]> numeronotificaciones() { return nS.numeronotificaciones();  }
 }

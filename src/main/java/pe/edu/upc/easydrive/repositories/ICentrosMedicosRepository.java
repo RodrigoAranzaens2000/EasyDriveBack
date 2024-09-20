@@ -12,4 +12,12 @@ import java.util.List;
 public interface ICentrosMedicosRepository extends JpaRepository<CentrosMedicos, Integer> {
     @Query("Select c from CentrosMedicos c where c.Nombre like %:nombre%")
     public List<CentrosMedicos> buscar(@Param("nombre") String nombre);
+
+    @Query(value ="SELECT c.nombre,avg(r.calificacion) FROM centros_medicos c\n" +
+            "join resenias r\n" +
+            "on c.idcentro = r.idcentro\n" +
+            "group by c.idcentro" ,nativeQuery = true)
+    public List<String[]> promedioreseniacentros();
+
+
 }

@@ -42,4 +42,9 @@ public class CentrosMedicosServiceImplement implements ICentrosMedicosService {
     public List<CentrosMedicos> buscar(String nombre) {
         return cR.buscar(nombre);
     }
+
+    @Override
+    public List<String[]> promedioreseniacentros() {
+        return cR.promedioreseniacentros();
+    }
 }
