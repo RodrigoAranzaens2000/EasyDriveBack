@@ -2,6 +2,7 @@ package pe.edu.upc.easydrive.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.easydrive.dtos.DireccionesDTO;
 import pe.edu.upc.easydrive.entities.Direcciones;
@@ -17,6 +18,7 @@ public class DireccionesController {
     private IDireccionesService dS;
 
     @GetMapping
+    @PreAuthorize("hasAuthority('administrador')")
     public List<DireccionesDTO> listar() {
         return dS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
