@@ -1,6 +1,7 @@
 pe\edu\upc\easydrive\repositories\IMetodoPagoRepository.class
 pe\edu\upc\easydrive\servicesimplements\TelefonosServiceImplement.class
 pe\edu\upc\easydrive\repositories\IDireccionesRepository.class
+pe\edu\upc\easydrive\dtos\CantidadRsCDTO.class
 pe\edu\upc\easydrive\entities\Telefonos.class
 pe\edu\upc\easydrive\entities\CentrosMedicos.class
 pe\edu\upc\easydrive\securities\JwtRequest.class
@@ -49,6 +50,7 @@ pe\edu\upc\easydrive\controllers\JwtAuthenticationController.class
 pe\edu\upc\easydrive\entities\Direcciones.class
 pe\edu\upc\easydrive\securities\JwtRequestFilter.class
 pe\edu\upc\easydrive\dtos\PagosDTO.class
+pe\edu\upc\easydrive\dtos\promcentrosDTO.class
 pe\edu\upc\easydrive\dtos\ServicioDTO.class
 pe\edu\upc\easydrive\repositories\IReservasRepository.class
 pe\edu\upc\easydrive\entities\Resenias.class
@@ -79,6 +81,7 @@ pe\edu\upc\easydrive\repositories\ITelefonosRepository.class
 pe\edu\upc\easydrive\servicesimplements\DireccionesServiceImplement.class
 pe\edu\upc\easydrive\controllers\CentrosMedicosController.class
 pe\edu\upc\easydrive\servicesinterfaces\IMetodoPagoService.class
+pe\edu\upc\easydrive\dtos\ContarNotificacionesDTO.class
 pe\edu\upc\easydrive\dtos\ReseniasDTO.class
 pe\edu\upc\easydrive\controllers\ReseniasController.class
 pe\edu\upc\easydrive\servicesimplements\ReseniasServiceImplement.class
