@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface IReseniasRepository extends JpaRepository<Resenias, Integer> {
-
+    ///HUB: Contar reseñas por escuelas
     @Query(value = "Select e.nombre, count(r.IDResenia)\n" +
             " from escuelas e\n" +
             " join resenias r\n" +

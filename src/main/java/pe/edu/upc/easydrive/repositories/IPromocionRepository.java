@@ -10,6 +10,8 @@ import java.util.List;
 
 @Repository
 public interface IPromocionRepository extends JpaRepository<Promocion, Integer> {
+
+    ///HUB: Buscar promociones por su nombre
     @Query("Select p from Promocion p where p.NombrePromocion like %:nombre%")
     public List<Promocion> buscar(@Param("nombre") String nombre);
 }

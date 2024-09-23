@@ -14,6 +14,7 @@ public interface IReservasRepository extends JpaRepository<Reservas, Integer> {
     @Query("Select r from Reservas r where r.EstadoReserva like %:nombre%")
     public List<Reservas> buscar(@Param("nombre") String nombre);
 
+    ///Sumar las ganancias de servicios por escuelas
     @Query(value = "Select e.nombre , SUM(s.precio)\n" +
             "from servicio s\n" +
             "join reservas r\n" +
@@ -49,7 +50,7 @@ public interface IReservasRepository extends JpaRepository<Reservas, Integer> {
             "ORDER BY SUM(s.precio) DESC", nativeQuery = true)
     public List<String[]> GananciasPorPromociones();
 
-    ///
+    ///HUB: Calcular ganancias por servicios y su cantidad
     @Query(value = "SELECT s.nombre_servicio , SUM(precio) , COUNT(s.idservicio) FROM servicio s\n" +
             "JOIN reservas r\n" +
             "ON s.idservicio = r.idservicio\n" +

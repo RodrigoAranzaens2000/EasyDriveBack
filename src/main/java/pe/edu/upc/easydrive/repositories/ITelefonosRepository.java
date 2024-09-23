@@ -10,6 +10,7 @@ import java.util.List;
 
 @Repository
 public interface ITelefonosRepository extends JpaRepository<Telefonos, Integer> {
+    ///HUB: Buscar telefonos por el numero
     @Query("Select t from Telefonos t where t.NumeroTelefono like %:nombre%")
     public List<Telefonos> buscar(@Param("nombre") String nombre);
 }

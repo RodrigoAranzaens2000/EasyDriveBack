@@ -10,9 +10,11 @@ import java.util.List;
 
 @Repository
 public interface IEscuelasRepository extends JpaRepository<Escuelas, Integer> {
+    ///HUB: Buscar Escuelas por nombre
     @Query("Select e from Escuelas e where e.nombre like %:nombre%")
     public List<Escuelas> buscar(@Param("nombre") String nombre);
 
+    ///HUB: Calcular el promedio de reseñas por escuelas
     @Query(value = "SELECT e.nombre, AVG(r.calificacion) FROM escuelas e\n" +
             "JOIN resenias r\n" +
             "ON e.idescuela = r.idescuelas\n" +
