@@ -10,16 +10,20 @@ import java.util.List;
 
 @Repository
 public interface IReservasRepository extends JpaRepository<Reservas, Integer> {
+    ///HUB: Buscar reservas por su estado
     @Query("Select r from Reservas r where r.EstadoReserva like %:nombre%")
     public List<Reservas> buscar(@Param("nombre") String nombre);
 
-    @Query(value = "Select e.nombre, sum(r.monto)\n" +
-            " from escuelas e\n" +
-            " join reservas r\n" +
-            " on e.IDEscuela = r.IDEscuela\n" +
-            " group by e.nombre", nativeQuery = true)
+    @Query(value = "Select e.nombre , SUM(s.precio)\n" +
+            "from servicio s\n" +
+            "join reservas r\n" +
+            "on s.idservicio = r.idservicio\n" +
+            "join escuelas e \n" +
+            "on e.idescuela = r.idescuela\n" +
+            "Group by e.idescuela", nativeQuery = true)
     public List<String[]> suma();
 
+    ///HUB: Contar la cantidad de reservas por escuelas
     @Query(value = "Select e.nombre, count(r.IDReserva)\n" +
             "from escuelas e\n" +
             "join reservas r\n" +
@@ -27,6 +31,7 @@ public interface IReservasRepository extends JpaRepository<Reservas, Integer> {
             "group by e.nombre", nativeQuery = true)
     public List<String[]> cantidad();
 
+    ///HUB: Contar la cantidad de reservas por centros medicos
     @Query(value = "Select c.nombre, count(r.IDReserva)\n" +
             "            from centros_medicos c\n" +
             "            join reservas r\n" +
@@ -34,7 +39,7 @@ public interface IReservasRepository extends JpaRepository<Reservas, Integer> {
             "            group by c.nombre", nativeQuery = true)
     public List<String[]> cantidadc();
 
-
+    ///HUB: Calcular las ganancias de cada servicio por sus promociones
     @Query(value = "SELECT nombre_promocion , SUM(s.precio) from servicio s\n" +
             "JOIN reservas r\n" +
             "ON s.idservicio = r.idservicio\n" +
@@ -44,6 +49,7 @@ public interface IReservasRepository extends JpaRepository<Reservas, Integer> {
             "ORDER BY SUM(s.precio) DESC", nativeQuery = true)
     public List<String[]> GananciasPorPromociones();
 
+    ///
     @Query(value = "SELECT s.nombre_servicio , SUM(precio) , COUNT(s.idservicio) FROM servicio s\n" +
             "JOIN reservas r\n" +
             "ON s.idservicio = r.idservicio\n" +
